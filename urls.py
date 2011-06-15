@@ -1,5 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 import os
+from tastymeeting.views.login import login
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -19,4 +21,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': site_media}),
+    url(r'^login/$',login)
 )

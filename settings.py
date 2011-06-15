@@ -98,6 +98,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django_facebook.middleware.FacebookMiddleware',
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -119,6 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mysite.tastymeeting',
+    'mysite.django_facebook',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -149,3 +151,9 @@ LOGGING = {
 }
 
 AUTH_PROFILE_MODULE = 'tastymeeting.Profile'
+
+FACEBOOK_APP_ID = '184673214918319'
+FACEBOOK_API_KEY = '4d127a401c464c5bf021bb97ba33b60a'
+FACEBOOK_SECRET_KEY = 'fdd3d86d84147c1ed181d38b250761c1'
+
+FACEBOOK_PERMS = ['email', 'user_about_me', 'user_photos', 'publish_stream', 'publish_checkins']

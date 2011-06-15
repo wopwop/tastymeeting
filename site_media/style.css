@@ -1,0 +1,372 @@
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0 none;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    font-family:"Helvetica Neue",Helvetica,sans-serif;
+    color:#313131;
+}
+
+a{
+    text-decoration:none;
+    color:#2987BB;
+}
+
+
+#rubon{
+    background: url("images/rubon.png") repeat scroll 0 0 transparent;
+    height: 5px;
+}
+
+#line{
+    background:url("images/tri.png") no-repeat;
+    height:5px;
+}
+
+
+/* header style */
+
+#header{
+    margin-top: 10px;
+}
+
+#header #h-t{
+    height: 75px;
+}
+
+#header #logo{
+    float: left;
+    margin-top: 5px;
+}
+
+#header #menu{
+    float: right;
+    font-size: 14px;
+    margin: 15px 0 0;
+}
+
+#menu ul{
+    list-style: none outside none;
+    margin: 0;
+}
+
+#menu ul li{
+    border-right: 1px solid #DDDDDD;
+    float: left;
+    padding: 7px;
+    text-align: center;
+}
+
+#menu ul li a{
+    color: #2987BB;
+    margin: 0;
+    text-decoration: none;
+    position:relative;
+}
+
+#menu ul li a:active{
+    top:1px;
+}
+
+#menu ul .highlight{
+    background: none repeat scroll 0 0 #97CA00;
+    border: 0 none !important;
+    border-radius: 5px 5px 5px 5px;
+    margin: 0 0 0 10px;
+    padding: 7px 15px;
+}
+
+#menu ul .highlight a{
+    color:#fff !important;
+    font-weight:bold;
+}
+
+/* welcome message */
+
+
+select {
+    -moz-border-radius: 4px;
+    -moz-box-shadow: 1px 1px 5px #cfcfcf inset;
+    border: 1px solid #cfcfcf;
+    vertical-align: middle;
+    background-color: transparent;
+}
+option {
+    background-color: #fef5e6;
+    border-bottom: 1px solid #ebdac0;
+    border-right: 1px solid #d6bb86;
+    border-left: 1px solid #d6bb86;
+}
+option:hover {
+    cursor: pointer;
+}
+
+
+
+#welcome{
+    float: left;
+    margin: 15px 0 0;
+    width: 100%;
+}
+
+#welcome #box #message{
+    float: left;
+    margin: 15px 0 0;
+    width: 390px;
+}
+
+#welcome h1{
+     font-size: 3em;
+     font-family: "Arvo",Arial,Helvetica,sans-serif;
+     font-weight: bold;
+}
+
+#welcome #message p{
+    color: #6C7377;
+    margin: 0 0 20px;
+    font-family:"Droid Sans",Arial,Helvetica,sans-serif;
+}
+
+.sb-custom {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  width:  100%;
+}
+
+.sparkbox-custom {
+  display: none;
+}
+
+.no-js .sparkbox-custom {
+  display: block;
+}
+
+#welcome #message .sb-select{
+    background: #fff url('images/select-arrow.jpg') no-repeat 98% 50%;
+    border: 4px solid #E4E4E4;
+    border-radius: 5px;
+    font-size: 1.6em;
+    margin: 0;
+    padding: 5px;
+    width: 350px;
+    cursor:pointer;
+}
+
+#welcome #message .sb-dropdown{
+    background: none repeat scroll 0 0 white;
+    border: 4px solid #E4E4E4;
+    font-size: 0.9em;
+    left: 0;
+    list-style: none outside none;
+    margin: 0;
+    padding: 5px;
+    position: absolute;
+    top: 26px;
+    width: 200px;
+    z-index: 99;
+    border-top:0;
+    box-shadow:none;
+    display:none;
+}
+
+#welcome #message .sb-dropdown li{
+    margin-bottom:5px;
+}
+
+#welcome #message .sb-dropdown a:hover, .sb-dropdown .selected {
+    background: none repeat scroll 0 0 #EDEDED !important;
+}
+
+#welcome #message .sb-dropdown a {
+  color: #444;
+  display: block;
+  padding: 3px;
+  text-decoration: none;
+}
+
+#welcome #box #shot{
+    background: url("images/shot.jpg") repeat scroll 0 0 transparent;
+    float: right;
+    height: 190px;
+    margin: 0;
+    width: 524px;
+}
+
+#welcome #box #shot img{
+    margin:0;
+}
+
+#location{
+    display:none;
+}
+
+
+/* container */
+
+#container{
+    float: left;
+    margin-top: 15px;
+    width: 100%;
+}
+
+#signup-message{
+    margin: 0 auto;
+    width: 410px;
+}
+
+#ask-for-signup{
+    background: url("http://beta.bonapp.com//images/home/gradient.jpg?1306170826") no-repeat scroll 0 0 transparent;
+    height: 60px;
+    margin: 0;
+    padding-top: 30px;
+}
+
+#ask-for-signup h1{
+    color: #6C7377;
+    float: left;
+    font-family: "Droid Sans",Arial,Helvetica,sans-serif;
+    font-size: 1.7em;
+    margin: 0;
+}
+
+#ask-for-signup #signup-now{
+    background: url("images/signup.jpg") repeat scroll 0 0 transparent;
+    cursor: pointer;
+    float: right;
+    height: 38px;
+    margin: -3px 0 0;
+    position: relative;
+    width: 140px;
+}
+
+#ask-for-signup #signup-now:active{
+    top:1px;
+}
+
+#content {
+
+}
+
+
+/* last-comments  */
+
+#last-comments{
+    float: left;
+    margin: 0 0 30px;
+}
+
+#last-comments h1{
+    color: #6C7377;
+    font-family: "Droid Sans",Arial,Helvetica,sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+#last-comments ul{
+    list-style: none outside none;
+    margin: 0;
+}
+
+#last-comments ul li{
+    border: 1px solid #E4E4E4;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 3px 3px 0 0 #E4E4E4;
+    float: left;
+    margin: 15px;
+    width: 448px;
+}
+
+#last-comment {
+   float: left;
+    margin: 0;
+    padding: 10px;
+}
+
+#last-comment #user-thumb {
+    float: left;
+    margin: 0 10px 0 0;
+    width: 80px;
+}
+
+#last-comment #user-thumb span{
+    color: #2987BB;
+    font-size: 13px;
+    margin: 0;
+}
+
+#last-comment #user-thumb img{
+    margin:0;
+}
+
+#last-comment #commtent-text{
+    background: url("images/comment.png") no-repeat scroll left top transparent;
+    float: left;
+    margin: 0;
+    padding: 10px 5px 5px 35px;
+    width: 267px;
+}
+
+#last-comment #commtent-text p{
+    font-size: 14px;
+    margin: 0;
+}
+
+/* footer */
+
+#footer{
+    bottom: 0;
+    float: left;
+    font-size: 13px;
+    height: 20px;
+    position: relative;
+    width: 100%;
+    margin-bottom:20px;
+}
+
+#footer span{
+    color: #C1C1C1;
+    margin: 0;
+    padding-right: 40px;
+}
+
+#footer a{
+    margin: 0 15px 0 0;
+    position:relative;
+}
+
+#footer a:active{
+    top:1px;
+}
+
+#footer ul{
+    float: right;
+    list-style: none outside none;
+    width: 380px;
+}
+
+#footer ul li{
+    float: left;
+    padding-left: 25px;
+}
+
+#footer ul #twitter{
+    background: url("images/icon-twitter.png") no-repeat scroll left center transparent;
+}
+
+#footer ul #facebook{
+    background: url("images/icon-facebook.png") no-repeat scroll left center transparent;
+}
+
