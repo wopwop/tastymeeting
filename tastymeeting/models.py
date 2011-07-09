@@ -27,9 +27,7 @@ class Profile(models.Model):
     # Interests
     apropos = models.TextField()
     siteweb = models.CharField(max_length = 100)
-    facebook = models.CharField(max_length = 100)
-    twitter = models.CharField(max_length = 100)
-    twitter_token = models.CharField(max_length = 300)
+    facebook = models.CharField(max_length = 100, unique = True)
     referral_code = models.CharField(max_length = 10)
     credit = models.IntegerField(default = 0)
     badges = models.ManyToManyField(Badge, blank = True)
@@ -39,7 +37,7 @@ class Profile(models.Model):
         ('F', 'Femme')
     )
     sexe = models.CharField(max_length = 1, choices = GENDER_CHOICES)
-    ville = models.ForeignKey(Ville)
+    ville = models.CharField(max_length = 100)
     
     def __unicode__(self):
         return "%s %s" % (self.prenom, self.nom)

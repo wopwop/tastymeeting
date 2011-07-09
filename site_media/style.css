@@ -253,10 +253,51 @@ option:hover {
     top:1px;
 }
 
-#content {
-
+#mini-form{
+    margin:0;
 }
 
+#mini-form p{
+    margin:0;
+}
+
+#mini-form p label{
+    color: #838383;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+}
+
+#mini-form p input.textinput{
+    border: 1px solid #B3B3B3;
+    font-size: 18px;
+    margin: 5px 0;
+    padding: 5px;
+    width: 340px;
+    outline:none;
+}
+
+#mini-form p input.textinput:focus{
+    border:2px solid #2DAEBF;
+}
+
+#mini-form p input.submitinput{
+    background: none repeat scroll 0 0 #97CA00;
+    border: 0 none !important;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF !important;
+    float: left;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+    padding: 7px 15px;
+}
+
+#mini-form p #facebook_connect{
+    float: right;
+    margin: 15px 0 0;
+}
 
 /* last-comments  */
 

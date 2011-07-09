@@ -156,4 +156,4 @@ FACEBOOK_APP_ID = '184673214918319'
 FACEBOOK_API_KEY = '4d127a401c464c5bf021bb97ba33b60a'
 FACEBOOK_SECRET_KEY = 'fdd3d86d84147c1ed181d38b250761c1'
 
-FACEBOOK_PERMS = ['email', 'user_about_me', 'user_photos', 'publish_stream', 'publish_checkins']
+FACEBOOK_PERMS = ['email', 'user_about_me']

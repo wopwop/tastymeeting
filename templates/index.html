@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+  
+    {% block messagebox %}
+        <div id="welcome">
+            <div id="box">
+                <h1>Builds friendships over food</h1>
+                <div id="message">
+                    <p>Discover new places and hotspots when you go out, then share your photos, recommendations and trips with friends!</p>
+                    
+                    <select name="location" id="location">
+                        <option value="paris">Paris</option>
+                        <option value="chicago">Chicago</option>
+                        <option value="new york">New York</option>
+                        <option value="las vegas">Las Vegas</option>
+                    </select>
+                    
+                </div>
+                
+                <div id="shot">
+                    
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    
+    {% block content %}
+        <div id="line"></div>
+        <div id="ask-for-signup">
+            <div id="signup-message">
+                <h1>Pas encore membre?</h1>
+                <a href="/loginbox?lightbox[width]=350&lightbox[height]=230" id="lightbox" class="lightbox"><div id="signup-now"></div></a>
+            </div>
+        </div>
+                
+        <div id="last-comments">
+            <h1>Qu'est-ce arracheurs disent les uns des autres!</h1>
+            <ul>
+                <li>
+                    <div id="last-comment">
+                        <div id="user-thumb">
+                            <img src="http://s3.amazonaws.com/grub_user_pics/21/small/IMG_5235.JPG?1303690421"/>
+                            <span>Tricia S</span>
+                        </div>
+                        <div id="commtent-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                </li>
+                    
+                <li>
+                    <div id="last-comment">
+                        <div id="user-thumb">
+                            <img src="https://s3.amazonaws.com/grub_user_pics/2723/small/IMG_6534.jpg?1301848879"/>
+                            <span>Jennifer M</span>
+                        </div>
+                        <div id="commtent-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                </li>
+                        
+            </ul>
+        </div>
+    {% endblock %}

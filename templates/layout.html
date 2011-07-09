@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>{% block title %}Page Title{% endblock %}</title>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic' rel='stylesheet' type='text/css'  />
@@ -11,14 +10,28 @@
     <link href='http://fonts.googleapis.com/css?family=Arvo:regular,bold' rel='stylesheet' type='text/css' />
     
     <!-- media files  -->
-    <link href="media_files/grids.css" type="text/css" rel="stylesheet"/>
-    <link href="media_files/style.css" type="text/css" rel="stylesheet"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <script src="media_files/js/jquery.sparkbox-select.js"></script>
-    <script src="media_files/js/script.js"></script>
+    <link href="/site_media/grids.css" type="text/css" rel="stylesheet"/>
+    <link href="/site_media/style.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="/site_media/js/jquery.min.js"></script>
     
-    {% block head %} {% endblock %}
+    <!-- Facebook js files -->
+    {% load facebook %}
+    {% facebook_init %}
+     {% block facebook_code %}{% endblock %}
+    {% endfacebook %}
     
+    
+    {% block head %}
+        <script type="text/javascript" src="/site_media/js/jquery.sparkbox-select.js"></script>
+        <link rel="stylesheet" type="text/css" href="/site_media/js/themes/default/jquery.lightbox.css" />
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" href="/site_media/js/themes/default/jquery.lightbox.ie6.css" />
+        <![endif]-->    
+        <script type="text/javascript" src="/site_media/js/jquery.lightbox.min.js"></script>
+    {% endblock %}
+     
+    <script type="text/javascript" src="/site_media/js/script.js"></script>
+  
 </head>
 
 <body>
@@ -32,14 +45,14 @@
     <div id="header">
         
         <div id="h-t">
-            <div id="logo"><img src="media_files/images/logo.png"/></div>
+            <div id="logo"><img class="lightbox" src="/site_media/images/logo.png"/></div>
             
             {% block menu %}
             <div id="menu">
                 <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Inscription</a></li>
-                    <li class="highlight"><a href="#">Connexion</a></li>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/signup/">Inscription</a></li>
+                    <li class="highlight"><a class="lightbox" href="javascript:void()">Connexion</a></li>
                 </ul>
             </div>
             {% endblock %}
@@ -52,69 +65,14 @@
     
 <!-- messagebox -->
     {% block messagebox %}
-        <div id="welcome">
-            <div id="box">
-                <h1>Builds friendships over food</h1>
-                <div id="message">
-                    <p>Discover new places and hotspots when you go out, then share your photos, recommendations and trips with friends!</p>
-                    
-                    <select name="location" id="location">
-                        <option value="paris">Paris</option>
-                        <option value="chicago">Chicago</option>
-                        <option value="new york">New York</option>
-                        <option value="las vegas">Las Vegas</option>
-                    </select>
-                    
-                </div>
-                
-                <div id="shot">
-                    
-                </div>
-            </div>
-        </div>
+
     {% endblock %}
     
 <!-- container -->
     <div id="container">
         <div id="content">
             {% block content %}
-                <div id="line"></div>
-                <div id="ask-for-signup">
-                    <div id="signup-message">
-                        <h1>Pas encore membre?</h1>
-                        <div id="signup-now"></div>
-                    </div>
-                </div>
-                
-                <div id="last-comments">
-                    <h1>Qu'est-ce arracheurs disent les uns des autres!</h1>
-                    <ul>
-                        <li>
-                            <div id="last-comment">
-                                <div id="user-thumb">
-                                    <img src="http://s3.amazonaws.com/grub_user_pics/21/small/IMG_5235.JPG?1303690421"/>
-                                    <span>Tricia S</span>
-                                </div>
-                                <div id="commtent-text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                        </li>
-                    
-                        <li>
-                            <div id="last-comment">
-                                <div id="user-thumb">
-                                    <img src="http://s3.amazonaws.com/grub_user_pics/4682/small/10320_1164844555127_1048260056_30481276_4943184_n.jpg?1300257559"/>
-                                    <span>Jennifer M</span>
-                                </div>
-                                <div id="commtent-text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                        </li>
-                        
-                    </ul>
-                </div>
+
             {% endblock %}
         </div>
     </div>
@@ -142,6 +100,6 @@
     </div>
 </div>
 
-
+{% facebook_load %}
 </body>
 </html>
