@@ -3,6 +3,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 import time
+from tastymeeting.thumbs import ImageWithThumbsField
+from django.forms.models import ModelForm
+
 # Create your models here.
 
 class Ville(models.Model):
@@ -15,7 +18,7 @@ class Badge(models.Model):
     description = models.CharField(max_length = 300)
     slug = models.CharField(max_length = 300)
     folder_id = int(time.time())
-    image = models.FileField(upload_to='upload/badges/%s/' % (folder_id))
+    image = models.ImageField(upload_to='upload/badges/')
     
     def __unicode__(self):
         return self.slug
@@ -23,24 +26,24 @@ class Badge(models.Model):
 class Profile(models.Model):
     user = models.ForeignKey(User , unique = True)
     folder_id = int(time.time())
-    image = models.FileField(upload_to='upload/avatars/%s/' % (folder_id) , blank = True)
+    image = ImageWithThumbsField(upload_to='upload/avatars/', sizes=((32,32),(80,80),(200,220)),null=True, blank = True)
     # Interests
-    apropos = models.TextField()
-    siteweb = models.CharField(max_length = 100)
-    facebook = models.CharField(max_length = 100, unique = True)
-    referral_code = models.CharField(max_length = 10)
-    credit = models.IntegerField(default = 0)
-    badges = models.ManyToManyField(Badge, blank = True)
-    friends = models.ManyToManyField('self')
+    apropos = models.TextField(null=True, blank = True)
+    siteweb = models.CharField(max_length = 100, null=True, blank = True)
+    facebook = models.CharField(max_length = 100, null=True, blank = True)
+    twitter = models.CharField(max_length=100, null=True, blank = True)
+    tags = models.TextField(null=True, blank = True)
+    referral_code = models.CharField(max_length = 10, null=True, blank = True)
+    credit = models.IntegerField(default = 0, null=True, blank = True)
+    badges = models.ManyToManyField(Badge, null=True, blank = True)
+    friends = models.ManyToManyField('self', null=True, blank = True)
     GENDER_CHOICES = (
         ('H', 'Homme'),
         ('F', 'Femme')
     )
-    sexe = models.CharField(max_length = 1, choices = GENDER_CHOICES)
-    ville = models.CharField(max_length = 100)
-    
-    def __unicode__(self):
-        return "%s %s" % (self.prenom, self.nom)
+    sexe = models.CharField(max_length = 1, choices = GENDER_CHOICES, null=True, blank = True)
+    ville = models.CharField(max_length = 100, null=True, blank = True)
+    birthdate = models.DateField(null=True, blank = True)
         
 class Message(models.Model):
     titre = models.CharField(max_length = 300)
@@ -78,7 +81,7 @@ class Repas(models.Model):
     date = models.DateTimeField()
     places = models.IntegerField()
     folder_id = int(time.time())
-    image = models.FileField(upload_to='upload/meals/%s/' % (folder_id))
+    image = ImageWithThumbsField(upload_to='upload/meals/', sizes=((110,75),(460,350),(230,140)))
     
 class Menu(models.Model):
     repas = models.ForeignKey(Repas)

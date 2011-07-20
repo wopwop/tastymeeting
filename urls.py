@@ -7,6 +7,8 @@ admin.autodiscover()
 
 # Import views
 from tastymeeting.views.home import *
+from tastymeeting.views.meals import *
+from tastymeeting.views.profile import *
 
 
 # Site media folder path
@@ -25,8 +27,20 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': site_media}),
+    
+    # Home signup and login urls
     url(r'^$',home),
-    url(r'^loginbox/$',loginbox),
-    url(r'^signup/$', signup)
+    url(r'^login/$',login),
+    url(r'^signup/$', signup),
+    url(r'^fbconnect/$',fbconnect),
+    url(r'^logout/$',logout),
+    
+    # Meals urls
+    url(r'^meals/(?P<location>\w+)/$',meals),
+    
+    # Profile urls
+    url(r'^settings/$', settings_profile),
+    
+    
     
 )

@@ -8,12 +8,23 @@ if($('#location').length > 0)
 $('#location').sbCustomSelect();    
 }
 
-// display loginbox in lightbox
+// uniform html form elements
+$("select, input:file, textarea, input:text").uniform();
 
-if($('#lightbox').length > 0){
-    jQuery('#lightbox').lightbox();
+$('.tags').tagsInput({
+    'defaultText':'Ajouter un tag'
+    });
+
+
+// notification
+if($("#notification").length > 0){
+    $("#notification").animate({top:0},700,function(){
+        setTimeout(function(){
+             var outerHeight = $("#notification").outerHeight();
+            $("#notification").animate({top:-outerHeight},700);
+            },1500)
+        })
 }
-
 
 // Facebook loginbox
 
@@ -22,13 +33,7 @@ $("#facebook_connect").live("click",function(){
     FB.login(function(response){
         if(response.session){
             if(response.perms){
-                
-                FB.api('/me', function(response) {
-                     $("#fullName").val(response.first_name+" "+response.last_name);
-                     $("#email").val(response.email);
-                });
-
-                
+                window.location = "/fbconnect";                
             } 
         }
         },{perms:'email'});

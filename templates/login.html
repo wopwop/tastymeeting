@@ -2,36 +2,20 @@
 
 {% block top_message %}
     <p>
-        Déjà sur Tastymeeting? <a href="/login/">Connectez-vous</a>
+        Pas encore membre? <a href="/signup/">Inscrivez-vous</a>
     </p>
 {% endblock %}
 
 
-
 {% block mini-content %}
-            
+
 {% if message %}
     <div id="form_info">{{message}}</div>
 {% endif %}
-                        
+   
 <div id="mini-form">
-    <form action="/signup/" method="post">
+    <form action="/login/" method="post">
         {% csrf_token %}
-        <ul>
-            <li>
-                <label> Nom </label>
-                <input name="last_name" id="mini-textinput" type="text"/>
-            </li>
-            <li>
-                <label> Prénom </label>
-                <input name="first_name" id="mini-textinput" type="text"/>
-            </li>
-            {% if form.last_name.errors or form.first_name.errors %}
-            <li>
-            <span id="form_alert">Votre nom et prénom sont obligatoires.</span>
-            </li>
-            {% endif %}
-        </ul>
                        
         <p>
             <label> Email </label>
@@ -57,4 +41,5 @@
         </p>
     </form>
 </div>
+
 {% endblock %}

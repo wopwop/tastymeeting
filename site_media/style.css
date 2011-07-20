@@ -32,6 +32,21 @@ a{
     height:5px;
 }
 
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+#login_box{
+    display:none;
+}
+
 
 /* header style */
 
@@ -50,7 +65,7 @@ a{
 
 #header #menu{
     float: right;
-    font-size: 14px;
+    font-size: 12px;
     margin: 15px 0 0;
 }
 
@@ -64,17 +79,31 @@ a{
     float: left;
     padding: 7px;
     text-align: center;
+    position:relative;
+}
+
+#menu ul #down{
+    padding-right: 16px;
 }
 
 #menu ul li a{
     color: #2987BB;
     margin: 0;
+    position: relative;
     text-decoration: none;
-    position:relative;
+    text-transform: capitalize;
 }
 
 #menu ul li a:active{
     top:1px;
+}
+
+#menu ul li img{
+    float: left;
+    height: 32px;
+    margin: -5px 0 0 -40px;
+    width: 32px;
+    position:absolute;
 }
 
 #menu ul .highlight{
@@ -88,6 +117,38 @@ a{
 #menu ul .highlight a{
     color:#fff !important;
     font-weight:bold;
+}
+
+#menu ul li:hover ul{
+    display:block;
+}
+
+#menu ul li ul{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    float: left;
+    left: 0;
+    padding: 4px;
+    position: absolute;
+    top: 25px;
+    display:none;
+}
+
+#menu ul li ul li{
+    border: 0 none !important;
+    float: none;
+    margin: 0;
+    text-align: left;
+    border-top: 1px solid #EFF2EA;
+}
+
+#menu ul li ul li a{
+    margin:0;
+}
+
+#menu ul li ul li:hover{
+    background:#EFF2EA;
 }
 
 /* welcome message */
@@ -162,6 +223,17 @@ option:hover {
     cursor:pointer;
 }
 
+#top-bar .sb-select{
+    background: url("images/select-arrow.jpg") no-repeat scroll 98% 50% #FFFFFF;
+    border: 4px solid #D0D5E0;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 5px;
+    width: 230px;
+}
+
 #welcome #message .sb-dropdown{
     background: none repeat scroll 0 0 white;
     border: 4px solid #E4E4E4;
@@ -179,7 +251,28 @@ option:hover {
     display:none;
 }
 
+#top-bar .sb-dropdown{
+    background: none repeat scroll 0 0 white;
+    border: 4px solid #D0D5E0;
+    font-size: 0.9em;
+    left: 0;
+    list-style: none outside none;
+    margin: 0;
+    padding: 4px;
+    position: absolute;
+    top: 25px;
+    width: 200px;
+    z-index: 99;
+    border-top:0;
+    box-shadow:none;
+    display:none;
+}
+
 #welcome #message .sb-dropdown li{
+    margin-bottom:5px;
+}
+
+#top-bar .sb-dropdown li{
     margin-bottom:5px;
 }
 
@@ -187,7 +280,18 @@ option:hover {
     background: none repeat scroll 0 0 #EDEDED !important;
 }
 
+#top-bar .sb-dropdown a:hover, .sb-dropdown .selected{
+    background: none repeat scroll 0 0 #EDEDED !important;
+}
+
 #welcome #message .sb-dropdown a {
+  color: #444;
+  display: block;
+  padding: 3px;
+  text-decoration: none;
+}
+
+#top-bar .sb-dropdown a{
   color: #444;
   display: block;
   padding: 3px;
@@ -299,6 +403,54 @@ option:hover {
     margin: 15px 0 0;
 }
 
+#top-bar{
+    margin: 10px 0 0;
+}
+
+#top-bar h2{
+    color: #838383;
+    float: left;
+    font-weight: bold;
+    margin: 9px 10px 0 0;
+}
+
+#top-bar #top-bar-menu{
+    background: -moz-linear-gradient(center top , #E6EAF4, #DCE1EC) repeat scroll 0 0 transparent;
+    border-radius: 5px 5px 5px 5px;
+    margin: 0;
+    padding: 7px;
+}
+
+#top-bar #menu {
+    float: right;
+    list-style: none outside none;
+    margin: 0;
+}
+
+#top-bar #menu li{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 5px 7px 0 0;
+    padding: 7px;
+    font-weight:bold;
+}
+
+#top-bar #menu li.selected{
+    background: none repeat scroll 0 0 #DB4925;
+    font-weight: bold;
+}
+
+#top-bar #menu li.selected a{
+    color: #fff;
+}
+
+#top-bar #menu li a{
+    color: #DB4925;
+}
+
 /* last-comments  */
 
 #last-comments{
@@ -364,6 +516,115 @@ option:hover {
     font-size: 14px;
     margin: 0;
 }
+
+/* meals list */
+
+#items-list {
+    float: left;
+    margin: 0;
+    padding: 0 5px 5px;
+}
+#items-list #item-block {
+    border-bottom: 1px solid #BFBFBF;
+    float: left;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 100%;
+}
+#item-block #calendar {
+    border: 1px solid #BFBFBF;
+    border-radius: 3px 3px 3px 3px;
+    float: left;
+    margin: 2px 0 0;
+    padding: 3px;
+    text-align: center;
+    width: 60px;
+}
+#item-block #calendar #month {
+    background: none repeat scroll 0 0 #DB1C1C;
+    color: #FFFFFF;
+    margin: 0;
+}
+#item-block #calendar #date {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 0;
+}
+#item-block #calendar #day {
+    font-size: 12px;
+    margin: 0;
+}
+#item-block #details {
+    float: left;
+    margin: 0 0 0 5px;
+}
+#item-block #details #meal-thumb {
+    float: left;
+    margin: 2px 5px 0 0;
+}
+#item-block #details #meal-thumb img {
+    background: none repeat scroll 0 0 #EAEDE5;
+    border: 1px solid #FFFFFF;
+    margin: 0;
+    padding: 2px;
+    width: 109px;
+}
+#item-block #details h4 {
+    float: left;
+    margin-top: 10px;
+}
+#item-block #details h4 a {
+    margin: 0;
+}
+#item-block #details #users-list {
+    display: block;
+    float: none;
+    margin-top: 8px;
+}
+#item-block #details #users-list ul {
+    list-style: none outside none;
+    margin: 0;
+}
+#item-block #details #users-list ul li {
+    float: left;
+    margin: 0 5px 0 0;
+}
+#item-block #details #users-list ul li a img {
+    background: none repeat scroll 0 0 #EAEDE5;
+    border: 1px solid #FFFFFF;
+    margin: 0;
+    padding: 2px;
+    width: 32px;
+}
+#item-block #details #users-list ul li a {
+    margin: 0;
+}
+#item-block #right-block {
+    float: right;
+    margin: 15px 0 0;
+    text-align: center;
+}
+#item-block #right-block #details-bt {
+    display: block;
+    float: left;
+    margin-bottom: 4px;
+}
+#item-block #right-block #details-bt a {
+    background: none repeat scroll 0 0 #EFF2EA;
+    border-radius: 5px 5px 5px 5px;
+    color: #858377;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px 3px;
+    width: 125px;
+}
+
+#item-block #right-block #details-bt a:hover{
+    background:#E4E5E3;
+}
+
 
 /* footer */
 

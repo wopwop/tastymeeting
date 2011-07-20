@@ -23,11 +23,6 @@
     
     {% block head %}
         <script type="text/javascript" src="/site_media/js/jquery.sparkbox-select.js"></script>
-        <link rel="stylesheet" type="text/css" href="/site_media/js/themes/default/jquery.lightbox.css" />
-        <!--[if IE 6]>
-        <link rel="stylesheet" type="text/css" href="/site_media/js/themes/default/jquery.lightbox.ie6.css" />
-        <![endif]-->    
-        <script type="text/javascript" src="/site_media/js/jquery.lightbox.min.js"></script>
     {% endblock %}
      
     <script type="text/javascript" src="/site_media/js/script.js"></script>
@@ -45,14 +40,38 @@
     <div id="header">
         
         <div id="h-t">
-            <div id="logo"><img class="lightbox" src="/site_media/images/logo.png"/></div>
+            <div id="logo"><a href="/"><img class="lightbox" src="/site_media/images/logo.png"/></a></div>
             
             {% block menu %}
             <div id="menu">
                 <ul>
-                    <li><a href="/">Accueil</a></li>
-                    <li><a href="/signup/">Inscription</a></li>
-                    <li class="highlight"><a class="lightbox" href="javascript:void()">Connexion</a></li>
+                        {% if user.is_authenticated %}
+                        <li id="down">
+                            <img src="https://www.grubwithus.com/images/bear.png?1310420280" alt="{{user.first_name}} {{user.last_name}}" title="{{user.first_name}} {{user.last_name}}"/>
+                            <a href="/users/{{user.first_name}}-{{user.last_name}}-{{user.id}}">{{user.first_name}} {{user.last_name}}</a>
+                            <ul>
+                                <li>
+                                    <a href="/reservations" title="reservations" alt="reservations">Reservations</a>
+                                </li>
+                                <li>
+                                    <a href="/settings" title="Paramètres" alt="Paramètres">Paramètres</a>
+                                </li>
+                                <li>
+                                    <a href="/referrals" title="Referrals" alt="Referrals">Referrals</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/messages" title="messages" alt="messages">Messages</a>
+                        </li>
+                        <li class="highlight">
+                            <a href="/logout">Déconnexion</a>
+                        </li>
+                        {% else %}
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="/signup/">Inscription</a></li>
+                        <li class="highlight"><a id="show_login_box" href="#login_box">Connexion</a></li>
+                        {% endif %}
                 </ul>
             </div>
             {% endblock %}
@@ -60,7 +79,7 @@
         </div>
         
         <div id="line"></div>
-        
+        <div id="login_box">test</div>
     </div>
     
 <!-- messagebox -->

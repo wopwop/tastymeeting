@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="/site_media/mini-style.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="/site_media/js/jquery.min.js"></script>
+    {% block head %} {% endblock %}
+    
+    <!-- Facebook js files -->
+    {% load facebook %}
+    {% facebook_init %}
+     {% block facebook_code %}{% endblock %}
+    {% endfacebook %}
+    
+    <script type="text/javascript" src="/site_media/js/script.js"></script>
+</head>
+
+<body>
+    {% block notification %} {% endblock %}
+    <div id="mini-wrap">
+        <div id="top-content">
+            <a href="/">
+                <img src="/site_media/images/logo.png"/>
+            </a>
+            {% block top_message %}
+
+            {% endblock %}
+        </div>
+        <div id="rubon"></div>
+        <div id="mini-content">
+            
+        {% block mini-content %}
+
+        {% endblock %}
+        
+        </div>
+    </div>
+
+{% facebook_load %}
+</body>
+</html>

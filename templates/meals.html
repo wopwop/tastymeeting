@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block messagebox %}
+<div id="top-bar">
+    <div id="location-thumb"><img src="https://www.grubwithus.com/images/ny.png?1310420280"/></div>
+    <div id="top-bar-menu">
+        <h2>Régions</h2>
+        <select name="location" id="location">
+            <option value="paris">Paris</option>
+            <option value="chicago">Chicago</option>
+            <option value="new york">New York</option>
+            <option value="las vegas">Las Vegas</option>
+        </select>
+        <ul id="menu">
+            <li class="selected"><a href="#">Prochains Repas</a></li>
+            <li><a href="#">Repas précédents</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div id="items-list">
+        <div id="item-block">
+            
+            <div id="calendar">
+                <div id="month">JULY</div>
+                <div id="date">15</div>
+                <div id="day">Thursday</div>
+            </div>
+            
+            <div id="details">
+                <div id="meal-thumb">
+                    <img src="https://s3.amazonaws.com/grub_restaurant_pics/11181/large/ayza.png?1310120518"/>
+                </div>
+                <h4><a href="#">Sosa Borella</a> at 7:30PM (Hell's Kitchen)</h4>
+                <div id="users-list">
+                    <ul>
+                        <li>
+                            <a href="#"><img src="https://s3.amazonaws.com/grub_user_pics/14453/thumb/IMG_0140.jpg?1310079013"/></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="https://s3.amazonaws.com/grub_user_pics/13731/thumb/facebook%20pic.jpg?1309925736"/></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="https://s3.amazonaws.com/grub_user_pics/4958/thumb/Babylove.JPG?1310657827"/></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="https://s3.amazonaws.com/grub_user_pics/7483/thumb/pic%20for%20grub.JPG?1309877066"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="right-block">
+                <div id="details-bt"><a href="#">voir les détails</a></div>
+            </div>
+            
+            
+        </div>
+    
+        <div id="item-block">
+            
+            <div id="calendar">
+                <div id="month">JULY</div>
+                <div id="date">15</div>
+                <div id="day">Thursday</div>
+            </div>
+            
+            <div id="details">
+                <div id="meal-thumb">
+                    <img src="https://s3.amazonaws.com/grub_restaurant_pics/11181/large/ayza.png?1310120518"/>
+                </div>
+                <h4><a href="#">Sosa Borella</a> at 7:30PM (Hell's Kitchen)</h4>
+            </div>
+            
+            <div id="right-block">
+                <div id="details-bt"><a href="#">voir les détails</a></div>
+            </div>
+            
+            
+        </div>
+        
+    </div>
+{% endblock %}
