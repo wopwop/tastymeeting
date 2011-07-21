@@ -17,7 +17,7 @@ class loginForm(forms.Form):
 class profileForm(forms.ModelForm):
     first_name = forms.CharField(error_messages = {'required':'Votre prénom est obligatoire.'})
     last_name = forms.CharField(error_messages = {'required':'Votre nom est obligatoire.'})
-    image = forms.ImageField(error_messages = {'invalid_image':"Ajouter une image valide. Le fichier que vous avez téléchargé soit n'était pas une image ou une image corrompue."})
+    image = forms.ImageField(error_messages = {'invalid_image':"Ajouter une image valide. Le fichier que vous avez téléchargé soit n'était pas une image ou une image corrompue."})    
     class Meta:
         model = Profile
         exclude = ('user',)

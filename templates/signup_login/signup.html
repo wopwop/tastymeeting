@@ -1,0 +1,60 @@
+{% extends "mini-layout.html" %}
+
+{% block top_message %}
+    <p>
+        Déjà sur Tastymeeting? <a href="/login/">Connectez-vous</a>
+    </p>
+{% endblock %}
+
+
+
+{% block mini-content %}
+            
+{% if message %}
+    <div id="form_info">{{message}}</div>
+{% endif %}
+                        
+<div id="mini-form">
+    <form action="/signup/" method="post">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label> Nom </label>
+                <input name="last_name" id="mini-textinput" type="text"/>
+            </li>
+            <li>
+                <label> Prénom </label>
+                <input name="first_name" id="mini-textinput" type="text"/>
+            </li>
+            {% if form.last_name.errors or form.first_name.errors %}
+            <li>
+            <span id="form_alert">Votre nom et prénom sont obligatoires.</span>
+            </li>
+            {% endif %}
+        </ul>
+                       
+        <p>
+            <label> Email </label>
+            <input type="text" name="email" id="textinput"/>
+            {% if form.email.errors %}
+            <span id="form_alert">{{form.email.errors|striptags}}</span>
+            {% endif %}
+    
+        </p>
+                        
+        <p>
+            <label> Mot de passe </label>
+            <input type="password" name="password" id="textinput"/>
+                            
+        {% if form.password.errors %}
+            <span id="form_alert">{{form.password.errors|striptags}}</span>
+        {% endif %}
+                            
+        </p>
+        <p>
+            <input type="submit" name="send" value="Envoyer" id="submitinput"/>
+            <a href="#" id="facebook_connect"><img src="/site_media/images/facebook_connect.gif"/></a>
+        </p>
+    </form>
+</div>
+{% endblock %}

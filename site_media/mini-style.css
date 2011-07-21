@@ -180,7 +180,7 @@ body {
     border-radius: 5px 5px 5px 5px;
     color: #383636;
     font-size: 14px;
-    margin: 0 auto 20px;
+    margin: 35px auto 0;
     padding: 5px;
     text-align: center;
     width: 400px;
@@ -192,6 +192,10 @@ body {
 
 #right_box{
     float: right;
+}
+
+#right_box img{
+    border:5px solid #E4E5E7;
 }
 
 .medium .selector{

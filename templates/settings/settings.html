@@ -1,0 +1,101 @@
+{% extends "mini-layout.html" %}
+
+{% block head %}
+    <script type="text/javascript" src="/site_media/js/uniform/jquery.uniform.min.js"></script>
+    <link rel="stylesheet" href="/site_media/js/uniform/css/uniform.default.css" type="text/css"/>
+    
+    <script type="text/javascript" src="/site_media/js/tags/jquery.tagsinput.min.js"></script>
+    <link rel="stylesheet" href="/site_media/js/tags/jquery.tagsinput.css" type="text/css"/>
+{% endblock %}
+
+
+{% block notification %}
+    {% if success == "ok" %}
+    <div id="notification">{{message}}</div>
+    {% endif %}
+{% endblock %}
+
+
+{% block top_message %}
+{% include "mini-layout-menu.html" %}
+{% endblock %}
+
+{% block mini-content %}
+
+{% if form.image.errors %}
+    <div id="form_info">{{form.image.errors|striptags}}</div>
+{% endif %}
+   
+
+    <div id="mini-form">
+        <form action="/settings/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="right_box">
+                <img src="/{{user.get_profile.image.url_200x220}}"/>
+                <p>    
+                    <label>Photo de profile</label>
+                    <input type="file" name="image"/>
+                </p>
+            </div>
+            <div id="left_box">
+                <ul>
+                    <li>
+                        <label> Nom </label>
+                        <input name="last_name" id="mini-textinput" value="{{user.last_name}}" type="text"/>
+                    </li>
+                    <li>
+                        <label> Prénom </label>
+                        <input name="first_name" id="mini-textinput" value="{{user.first_name}}" type="text"/>
+                    </li>
+                </ul>
+                
+                <ul>
+                    <li class="medium">
+                        <label> Sexe </label>
+                        <select name="sexe">
+                            <option {% if user.get_profile.sexe == "H" %} selected="selected" {% endif %} value="H">Homme</option>
+                            <option {% if user.get_profile.sexe == "F" %} selected="selected" {% endif %} value="F">Femme</option>
+                        </select>
+                    </li>
+                
+                    <li class="medium">
+                        <label> Ville </label>
+                        <select name="ville">
+                            <option value="Paris">Paris</option>
+                        </select>
+                    </li>
+                </ul>
+                
+
+                
+                <p>
+                    <label> A propos de moi </label>
+                    <textarea name="apropos">{{user.get_profile.apropos}}</textarea>
+                </p>
+                
+                <ul>
+                    <li>
+                        <label> Facebook </label>
+                        <input name="facebook" value="{{user.get_profile.facebook}}" id="mini-textinput" type="text"/>
+                    </li>
+                
+                    <li>
+                        <label> Twitter </label>
+                        <input name="twitter" value="{{user.get_profile.twitter}}" id="mini-textinput" type="text"/>
+                    </li>
+                </ul>
+                
+                <p>
+                    <label> Je suis intéressé par </label>
+                    <input name="tags" value="{{user.get_profile.tags}}" class="tags" id="textinput" type="text"/>
+                </p>
+                
+                <p>
+                    <input type="submit" name="send" value="Modifier" id="submitinput"/>
+                </p>
+            
+            </div>
+        
+        </form>
+    </div>
+{% endblock %}

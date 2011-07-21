@@ -11,10 +11,21 @@ def settings_profile(request):
         if form.is_valid():
             form.user = request.user
             updated_profile = form.save()
+            
+            if "first_name" in request.POST:
+                request.user.first_name = request.POST['first_name']
+                request.user.save()
+            if "last_name" in request.POST:
+                request.user.last_name = request.POST['last_name']
+                request.user.save()
+            
             success = "ok"
             message = "Vos paramètres ont bien été enregistré"
-            return render_to_response("settings.html", {"success":success, "message":message}, context_instance=RequestContext(request))
+            return render_to_response("settings/settings.html", {"success":success, "message":message}, context_instance=RequestContext(request))
         else:
-            return render_to_response("settings.html", {"form":form}, context_instance=RequestContext(request))
+            return render_to_response("settings/settings.html", {"form":form}, context_instance=RequestContext(request))
     else:    
-        return render_to_response("settings.html", context_instance=RequestContext(request))
+        return render_to_response("settings/settings.html", context_instance=RequestContext(request))
+        
+def settings_pass(request):
+    return HttpResponse("tet")

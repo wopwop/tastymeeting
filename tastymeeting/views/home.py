@@ -26,9 +26,9 @@ def login(request):
                 return render_to_response("login.html", {"message":message}, context_instance=RequestContext(request))
         else:
             # show form errors
-            return render_to_response("login.html",{"form":form}, context_instance=RequestContext(request))
+            return render_to_response("signup_login/login.html",{"form":form}, context_instance=RequestContext(request))
     else:
-        return render_to_response("login.html",context_instance=RequestContext(request))
+        return render_to_response("signup_login/login.html",context_instance=RequestContext(request))
     
 # Classic signup
     
@@ -51,12 +51,12 @@ def signup(request):
             else:
                 # show message that user exist
                 message = "Un compte avec cette adresse email existe déjà."
-                return render_to_response("signup.html", {"message":message}, context_instance=RequestContext(request))
+                return render_to_response("signup_login/signup.html", {"message":message}, context_instance=RequestContext(request))
         else:
             # form is invalide show errors
-            return render_to_response("signup.html",{"form":form}, context_instance=RequestContext(request))
+            return render_to_response("signup_login/signup.html",{"form":form}, context_instance=RequestContext(request))
     else:
-        return render_to_response("signup.html", context_instance=RequestContext(request))
+        return render_to_response("signup_login/signup.html", context_instance=RequestContext(request))
     
 
 # Manage login or signup with facebook

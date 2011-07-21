@@ -13,7 +13,7 @@ from tastymeeting.views.profile import *
 
 # Site media folder path
 site_media = os.path.join(os.path.dirname(__file__), 'site_media')
-
+upload = os.path.join(os.path.dirname(__file__), 'upload')
 
 
 urlpatterns = patterns('',
@@ -27,6 +27,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': site_media}),
+    url(r'^upload/(?P<path>.*)$', 'django.views.static.serve', {'document_root':upload}),
     
     # Home signup and login urls
     url(r'^$',home),
@@ -40,6 +41,7 @@ urlpatterns = patterns('',
     
     # Profile urls
     url(r'^settings/$', settings_profile),
+    url(r'^settings/pass$', settings_pass),
     
     
     
