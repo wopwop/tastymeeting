@@ -41,7 +41,7 @@ urlpatterns = patterns('',
     
     # Profile urls
     url(r'^settings/$', settings_profile),
-    url(r'^settings/pass$', settings_pass),
+    url(r'^settings/password/$', settings_pass),
     
     
     

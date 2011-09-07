@@ -3,7 +3,7 @@
 from django.shortcuts import render_to_response, HttpResponse, redirect, RequestContext
 from django.contrib.auth.models import User
 from tastymeeting.models import Profile
-from tastymeeting.forms import profileForm
+from tastymeeting.forms import profileForm, PasswordForm
 
 def settings_profile(request):
     if request.method == "POST":
@@ -19,7 +19,7 @@ def settings_profile(request):
                 request.user.last_name = request.POST['last_name']
                 request.user.save()
             
-            success = "ok"
+            success = True
             message = "Vos paramètres ont bien été enregistré"
             return render_to_response("settings/settings.html", {"success":success, "message":message}, context_instance=RequestContext(request))
         else:
@@ -28,4 +28,21 @@ def settings_profile(request):
         return render_to_response("settings/settings.html", context_instance=RequestContext(request))
         
 def settings_pass(request):
-    return HttpResponse("tet")
+    if request.method == "POST":
+        form = PasswordForm(request.POST)
+        if form.is_valid():
+            # check if passwords are matching
+            if request.POST['password'] == request.POST['repassword']:
+                # update user password
+                request.user.set_password(request.POST['password'])
+                request.user.save()
+                success = True
+                message = "Votre mot de passe a été modifié avec succès"
+                return render_to_response("settings/password.html", {"success":success, "message":message}, context_instance = RequestContext(request))
+            else:
+                error = "bla bla"
+                return render_to_response("settings/password.html", {"error":error}, context_instance = RequestContext(request))
+        else:
+            return render_to_response("settings/password.html", {"form":form}, context_instance=RequestContext(request))
+    else:
+        return render_to_response("settings/password.html", context_instance=RequestContext(request))

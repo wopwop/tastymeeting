@@ -44,42 +44,34 @@
             
             {% block menu %}
             <div id="menu">
-                <ul>
-                        {% if user.is_authenticated %}
-                        <li id="down">
-                            <img src="https://www.grubwithus.com/images/bear.png?1310420280" alt="{{user.first_name}} {{user.last_name}}" title="{{user.first_name}} {{user.last_name}}"/>
-                            <a href="/users/{{user.first_name}}-{{user.last_name}}-{{user.id}}">{{user.first_name}} {{user.last_name}}</a>
+                {% if user.is_authenticated %}
+                    <ul>
+                        <li>
+                            <img src="/{{user.get_profile.image.url_32x32}}"/>
+                            <a href="/user/{{user.first_name}}-{{user.lastname}}/{{user.id}}"> {{user.first_name}} {{user.last_name}}</a>
                             <ul>
-                                <li>
-                                    <a href="/reservations" title="reservations" alt="reservations">Reservations</a>
-                                </li>
-                                <li>
-                                    <a href="/settings" title="Paramètres" alt="Paramètres">Paramètres</a>
-                                </li>
-                                <li>
-                                    <a href="/referrals" title="Referrals" alt="Referrals">Referrals</a>
-                                </li>
+                                <li><a href="/reservations">Reservations</a></li>
+                                <li><a href="/settings">Paramètres</a></li>
+                                <li><a href="/referrals">Referrals</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="/messages" title="messages" alt="messages">Messages</a>
-                        </li>
-                        <li class="highlight">
-                            <a href="/logout">Déconnexion</a>
-                        </li>
-                        {% else %}
-                        <li><a href="/">Accueil</a></li>
-                        <li><a href="/signup/">Inscription</a></li>
-                        <li class="highlight"><a id="show_login_box" href="#login_box">Connexion</a></li>
-                        {% endif %}
+                        <li><a href="/messages">Messages</a></li>
+                        <li class="highlight"><a href="/logout">Déconnexion</a></li>
+                    </ul>
+                {% else %}
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/signup">Inscription</a></li>
+                    <li class="highlight"><a href="/login">Connexion</a></li>
                 </ul>
+                {% endif %}
             </div>
             {% endblock %}
             
         </div>
         
         <div id="line"></div>
-        <div id="login_box">test</div>
+        
     </div>
     
 <!-- messagebox -->

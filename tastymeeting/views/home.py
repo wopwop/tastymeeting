@@ -23,7 +23,7 @@ def login(request):
                 return redirect("/meals/paris/")
             else:
                 message = "Votre email ou mot de passe de connexion n'est pas valide."
-                return render_to_response("login.html", {"message":message}, context_instance=RequestContext(request))
+                return render_to_response("signup_login/login.html", {"message":message}, context_instance=RequestContext(request))
         else:
             # show form errors
             return render_to_response("signup_login/login.html",{"form":form}, context_instance=RequestContext(request))

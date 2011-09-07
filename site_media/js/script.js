@@ -9,11 +9,13 @@ $('#location').sbCustomSelect();
 }
 
 // uniform html form elements
-$("select, input:file, textarea, input:text").uniform();
+$("select, input:file, textarea, input:text, input:password").uniform();
 
-$('.tags').tagsInput({
+if($('.tags').length > 0){
+    $('.tags').tagsInput({
     'defaultText':'Ajouter un tag'
     });
+}
 
 
 // notification

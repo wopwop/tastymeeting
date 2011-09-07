@@ -21,3 +21,7 @@ class profileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ('user',)
+
+class PasswordForm(forms.Form):
+    password = forms.CharField()
+    repassword = forms.CharField()
