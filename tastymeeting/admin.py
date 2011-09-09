@@ -5,6 +5,7 @@ from tastymeeting.models import *
 
 class RestaurantAdmin(admin.ModelAdmin):
     list_display = ('nom', 'ville', 'adresse', 'tel')
+    prepopulated_fields = {"slug": ("nom",)}
     
 class MenuInline(admin.TabularInline):
     model = Menu

@@ -13,6 +13,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 body {
     font-family:"Helvetica Neue",Helvetica,sans-serif;
     color:#313131;
+    background: url("images/index.png") repeat scroll 0 0 transparent;
 }
 
 a{
@@ -24,6 +25,12 @@ a{
 #rubon{
     background: url("images/rubon.png") repeat scroll 0 0 transparent;
     height: 5px;
+}
+
+#wrap{
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 0 6px #999999;
+    padding: 0 15px 15px;
 }
 
 #line{
@@ -54,6 +61,7 @@ a{
     margin:0;
 }
 
+
 /* header style */
 
 #header{
@@ -61,7 +69,7 @@ a{
 }
 
 #header #h-t{
-    height: 75px;
+    height: 65px;
 }
 
 #header #logo{
@@ -93,7 +101,7 @@ a{
 }
 
 #menu ul li a{
-    color: #2987BB;
+    color: #838383;
     margin: 0;
     position: relative;
     text-decoration: none;
@@ -105,15 +113,16 @@ a{
 }
 
 #menu ul li img{
+    border: 1px solid #FFFFFF;
     float: left;
     height: 32px;
-    margin: -5px 0 0 -40px;
+    margin: -10px 0 0 -55px;
+    position: absolute;
     width: 32px;
-    position:absolute;
 }
 
 #menu ul .highlight{
-    background: none repeat scroll 0 0 #97CA00;
+    background: none repeat scroll 0 0 #8DBA3B !important;
     border: 0 none !important;
     border-radius: 5px 5px 5px 5px;
     margin: 0 0 0 10px;
@@ -130,23 +139,27 @@ a{
 }
 
 #menu ul li ul{
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-bottom: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
-    float: left;
+    background: none repeat scroll 0 0 #B1BACE;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
     left: 0;
-    padding: 4px;
+    padding: 10px;
     position: absolute;
-    top: 25px;
-    display:none;
+    top: 26px;
 }
 
 #menu ul li ul li{
     border: 0 none !important;
-    float: none;
-    margin: 0;
+    margin: 0 0 5px !important;
+    padding: 0 !important;
     text-align: left;
-    border-top: 1px solid #EFF2EA;
+    width: 100%;
+    border-radius:0 !important;
+}
+
+#menu ul li ul li:hover{
+    border-bottom:1px solid #fff !important;
 }
 
 #menu ul li ul li a{
@@ -414,7 +427,9 @@ option:hover {
 }
 
 #top-bar{
+    float: right;
     margin: 10px 0 0;
+    width: 775px;
 }
 
 #top-bar h2{
@@ -448,17 +463,29 @@ option:hover {
     font-weight:bold;
 }
 
-#top-bar #menu li.selected{
-    background: none repeat scroll 0 0 #DB4925;
+#top-bar #menu li{
+    background:none repeat scroll 0 0 #B1BACE;
     font-weight: bold;
 }
 
-#top-bar #menu li.selected a{
-    color: #fff;
+#top-bar #menu li a{
+    color: #FFFFFF;
 }
 
-#top-bar #menu li a{
-    color: #DB4925;
+#top-bar #menu li.shutdown-bt
+{
+    background: url("images/shutdown.png") no-repeat scroll 5px 2px #B1BACE;
+    padding-left: 33px;
+}
+
+#top-bar #menu li.inbox-bt{
+    background: url("images/inbox.png") no-repeat scroll 5px 2px #B1BACE;
+    padding-left: 33px;
+}
+
+#top-bar #menu li.settings-bt{
+    background: url("images/settings.png") no-repeat scroll 5px 2px #B1BACE;
+    padding-left: 30px;
 }
 
 /* last-comments  */
@@ -532,10 +559,8 @@ option:hover {
 #items-list {
     float: left;
     margin: 0;
-    padding: 0 5px 5px;
 }
 #items-list #item-block {
-    border-bottom: 1px solid #BFBFBF;
     float: left;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -567,6 +592,7 @@ option:hover {
 #item-block #details {
     float: left;
     margin: 0 0 0 5px;
+    width: 480px;;
 }
 #item-block #details #meal-thumb {
     float: left;
@@ -580,15 +606,14 @@ option:hover {
     width: 109px;
 }
 #item-block #details h4 {
-    float: left;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 #item-block #details h4 a {
     margin: 0;
 }
 #item-block #details #users-list {
     display: block;
-    float: none;
+    float: left;
     margin-top: 8px;
 }
 #item-block #details #users-list ul {
@@ -604,16 +629,30 @@ option:hover {
     border: 1px solid #FFFFFF;
     margin: 0;
     padding: 2px;
-    width: 32px;
+    width: 52px;
 }
 #item-block #details #users-list ul li a {
     margin: 0;
 }
+
+#item-block #details #users-list ul li #places-rest
+{
+    color: #858377;
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 11px 0 0 5px;
+}
+
+#item-block #details #users-list ul li #places-rest-icon{
+float:left;
+}
 #item-block #right-block {
     float: right;
-    margin: 15px 0 0;
+    margin: 5px 0 0;
     text-align: center;
 }
+
 #item-block #right-block #details-bt {
     display: block;
     float: left;
@@ -633,8 +672,74 @@ option:hover {
 
 #item-block #right-block #details-bt a:hover{
     background:#E4E5E3;
+    color:#DB4925;
 }
 
+#item-block #right-block #price{
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+/* people near me */
+
+.n-title{
+    background: url("images/ribbon.png") repeat scroll 0 0 transparent;
+    height: 66px;
+    left: -31px;
+    margin: 10px 0 20px;
+    position: relative;
+    width: 339px;
+    float:left;
+}
+
+.n-title h4{
+    color: #87999F;
+    float: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0 0 30px;
+    position: relative;
+}
+
+#people-near-me{
+    float: left;
+    margin: 0 0 10px;
+    width: 100%;
+}
+
+#profile-shot{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDDDDD;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+    float: left;
+    height: 160px;
+    margin: 0 auto 0 10px;
+    padding: 5px;
+    position: relative;
+    width: 135px;
+}
+
+#profile-shot img{
+    height: 160px;
+    margin: 0;
+    width: 135px;
+}
+
+#profile-shot span{
+    background: none repeat scroll 0 0 #FFFFFF;
+    bottom: 0;
+    color: #858377;
+    font-size: 14px;
+    font-weight: bold;
+    left: 0;
+    margin: 0;
+    opacity: 0.8;
+    padding: 10px;
+    position: absolute;
+    width: 125px;
+}
 
 /* footer */
 
@@ -645,7 +750,8 @@ option:hover {
     height: 20px;
     position: relative;
     width: 100%;
-    margin-bottom:20px;
+    border-top: 1px dashed #BFBFBF;
+    padding-top: 10px;
 }
 
 #footer span{

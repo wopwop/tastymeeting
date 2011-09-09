@@ -38,6 +38,7 @@ urlpatterns = patterns('',
     
     # Meals urls
     url(r'^meals/(?P<location>\w+)/$',meals),
+    url(r'^restaurant/(?P<restaurant>[-\w]+)/(?P<meal_id>\d+)/$', meal_details),
     
     # Profile urls
     url(r'^settings/$', settings_profile),

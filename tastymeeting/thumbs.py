@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 """
-django-thumbs by Antonio Melé
+django-thumbs by Antonio MelÃ©
 http://django.es
 """
 from django.db.models import ImageField
@@ -31,33 +31,56 @@ def generate_thumb(img, thumb_size, format):
         image = image.convert('RGB')
         
     # get size
-    thumb_w, thumb_h = thumb_size
-    # If you want to generate a square thumbnail
-    if thumb_w == thumb_h:
-        # quad
-        xsize, ysize = image.size
-        # get minimum size
-        minsize = min(xsize,ysize)
-        # largest square possible in the image
-        xnewsize = (xsize-minsize)/2
-        ynewsize = (ysize-minsize)/2
-        # crop it
-        image2 = image.crop((xnewsize, ynewsize, xsize-xnewsize, ysize-ynewsize))
-        # load is necessary after crop                
-        image2.load()
-        # thumbnail of the cropped image (with ANTIALIAS to make it look better)
-        image2.thumbnail(thumb_size, Image.ANTIALIAS)
+    t_width, t_height = thumb_size
+    
+    
+    VP = float(t_height) / t_width
+    HP = float(t_width) / t_height
+    
+    width, height = image.size
+
+    
+    vp = float(height) / width
+    hp = float(width) / height
+
+    if vp > VP:
+        nheight = int(width * VP)
+        top = int((height - nheight) / 2.)
+        im = image.crop((0, top, width, top+nheight))
     else:
-        # not quad
-        image2 = image
-        image2.thumbnail(thumb_size, Image.ANTIALIAS)
+        nwidth = int(height * HP)
+        left = int((width - nwidth) / 2.)
+        im = image.crop((left, 0, left+nwidth, height))
+    
+    im = im.resize((t_width, t_height), Image.ANTIALIAS)
+    
+    # If you want to generate a square thumbnail
+    #if thumb_w == thumb_h:
+        # quad
+     #   xsize, ysize = image.size
+        # get minimum size
+      #  minsize = min(xsize,ysize)
+        # largest square possible in the image
+       # xnewsize = (xsize-minsize)/2
+        #ynewsize = (ysize-minsize)/2
+        # crop it
+        #image2 = image.crop((xnewsize, ynewsize, xsize-xnewsize, ysize-ynewsize))
+        # load is necessary after crop                
+       # image2.load()
+        # thumbnail of the cropped image (with ANTIALIAS to make it look better)
+        #image2.thumbnail(thumb_size, Image.ANTIALIAS)
+    #else:
+        
+     #   image2 = image.crop((0, 0, thumb_w, thumb_h))
+      #  image2.load()
+       # image2.thumbnail(thumb_size, Image.ANTIALIAS)
     
     io = cStringIO.StringIO()
     # PNG and GIF are the same, JPG is JPEG
     if format.upper()=='JPG':
         format = 'JPEG'
     
-    image2.save(io, format)
+    im.save(io, format)
     return ContentFile(io.getvalue())    
 
 class ImageWithThumbsFieldFile(ImageFieldFile):

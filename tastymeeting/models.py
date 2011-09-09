@@ -26,7 +26,7 @@ class Badge(models.Model):
 class Profile(models.Model):
     user = models.ForeignKey(User , unique = True)
     folder_id = int(time.time())
-    image = ImageWithThumbsField(upload_to='upload/avatars/', sizes=((32,32),(80,80),(200,220)),null=True, blank = True)
+    image = ImageWithThumbsField(upload_to='upload/avatars/', sizes=((32,32),(52,52),(135,160),(200,220), (400,400)), null=True, blank = True)
     # Interests
     apropos = models.TextField(null=True, blank = True)
     siteweb = models.CharField(max_length = 100, null=True, blank = True)
@@ -69,8 +69,10 @@ class Reponse(models.Model):
 class Restaurant(models.Model):
     nom = models.CharField(max_length = 100)
     ville = models.ForeignKey(Ville)
-    adresse = models.CharField(max_length = 300)
+    lieu = models.CharField(max_length = 300)
+    adresse = models.CharField(max_length = 500)
     tel = models.CharField(max_length = 30, blank = True)
+    slug = models.SlugField()
     
     def __unicode__(self):
         return self.nom
@@ -82,6 +84,9 @@ class Repas(models.Model):
     places = models.IntegerField()
     folder_id = int(time.time())
     image = ImageWithThumbsField(upload_to='upload/meals/', sizes=((110,75),(460,350),(230,140)))
+    
+    def __unicode__(self):
+        return self.restaurant.nom
     
 class Menu(models.Model):
     repas = models.ForeignKey(Repas)

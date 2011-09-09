@@ -10,6 +10,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 body {
     font-family: "Helvetica Neue",Arial,sans-serif;
+    background:url("images/index.png") repeat scroll 0 0 transparent;
 }
 #mini-wrap {
     margin: 60px auto 0;
@@ -25,6 +26,7 @@ body {
 #mini-form {
     margin: 0;
     padding: 35px;
+    box-shadow:0 0 6px #999999;
 }
 #mini-form p {
     margin: 0;
@@ -146,10 +148,10 @@ body {
     float: none;
     font-size: 13px;
     font-weight: bold;
-    left: 50px;
+    left: 85px;
     margin: 0;
     position: relative;
-    top: -29px;
+    top: -25px;
 }
 
 #rubon {

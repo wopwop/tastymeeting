@@ -35,50 +35,63 @@
 <div id="rubon"></div>
 
 <div id="wrap" class="container_12">
-
+    <div class="clear"></div>
 <!-- header -->
     <div id="header">
         
         <div id="h-t">
             <div id="logo"><a href="/"><img class="lightbox" src="/site_media/images/logo.png"/></a></div>
             
-            {% block menu %}
-            <div id="menu">
-                {% if user.is_authenticated %}
-                    <ul>
-                        <li>
-                            <img src="/{{user.get_profile.image.url_32x32}}"/>
-                            <a href="/user/{{user.first_name}}-{{user.lastname}}/{{user.id}}"> {{user.first_name}} {{user.last_name}}</a>
+                
+            <div id="top-bar">
+                <div id="top-bar-menu">
+                    <h2>Régions</h2>
+                    <select name="location" id="location">
+                        <option value="paris">Paris</option>
+                        <option value="chicago">Chicago</option>
+                        <option value="new york">New York</option>
+                        <option value="las vegas">Las Vegas</option>
+                    </select>
+                    
+                    <div id="menu">
+                        {% if user.is_authenticated %}
                             <ul>
-                                <li><a href="/reservations">Reservations</a></li>
-                                <li><a href="/settings">Paramètres</a></li>
-                                <li><a href="/referrals">Referrals</a></li>
+                                <li class="settings-bt">
+                                    <a href="/user/{{user.first_name}}-{{user.lastname}}/{{user.id}}">{{user.first_name}} {{user.last_name}}</a>
+                                    <ul>
+                                        <li><a href="/reservations">Reservations</a></li>
+                                        <li><a href="/settings">Paramètres</a></li>
+                                        <li><a href="/referrals">Referrals</a></li>
+                                    </ul>
+                                </li>
+                                <li class="inbox-bt"><a href="/messages">Messages</a></li>
+                                <li class="shutdown-bt"><a href="/logout">Déconnexion</a></li>
                             </ul>
-                        </li>
-                        <li><a href="/messages">Messages</a></li>
-                        <li class="highlight"><a href="/logout">Déconnexion</a></li>
-                    </ul>
-                {% else %}
-                <ul>
-                    <li><a href="/">Accueil</a></li>
-                    <li><a href="/signup">Inscription</a></li>
-                    <li class="highlight"><a href="/login">Connexion</a></li>
-                </ul>
-                {% endif %}
+                        {% else %}
+                        <ul>
+                            <li><a href="/">Accueil</a></li>
+                            <li><a href="/signup">Inscription</a></li>
+                            <li class="highlight"><a href="/login">Connexion</a></li>
+                        </ul>
+                        {% endif %}
+                    </div>
+                    
+                    
+                    
+                    
+                </div>
             </div>
-            {% endblock %}
             
         </div>
         
-        <div id="line"></div>
-        
-    </div>
+       
     
 <!-- messagebox -->
     {% block messagebox %}
 
     {% endblock %}
     
+    <div class="clear"></div>
 <!-- container -->
     <div id="container">
         <div id="content">
@@ -87,7 +100,7 @@
             {% endblock %}
         </div>
     </div>
-    
+    <div class="clear"></div>
     
 <!-- footer -->
     <div id="footer">
@@ -109,6 +122,7 @@
             </ul>
         {% endblock %}
     </div>
+    <div class="clear"></div>
 </div>
 
 {% facebook_load %}
